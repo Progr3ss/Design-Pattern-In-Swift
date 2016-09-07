@@ -17,19 +17,17 @@ var products = [
 
 
 
-func calculateTax(product: Product) -> Double{
-	return product.price * 0.2
-}
 
 func calculateStockValue(productsArray: [Product]) -> Double {
 	
 	return productsArray.reduce(0, combine: { (total, product) -> Double in
 		
-		return total + (product.price * Double(product.stock))
+
+		return total + product.stockValue
 	})
 }
 
 
 
-print("Sales tax for iPad : \(calculateTax(products[0]))")
+print("Sales tax for iPad : \((products[0].calculateTax(0.2)))")
 print("Total of stock: \(calculateStockValue(products))")
